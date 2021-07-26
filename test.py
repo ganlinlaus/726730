@@ -1,3 +1,5 @@
 import cv2
-
-img = cv2.imread('image.jpg')
+import numpy as np
+from matplotlib import pyplot as plt
+img = cv2.imread('20180807002350.jpg')
+plt.show()
