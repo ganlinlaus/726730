@@ -1,7 +1,7 @@
 import cv2
 
 #開圖
-img1 = cv2.imread('0000.png')
+img1 = cv2.imread('003.png')
 print(img1.shape)
 
 roi1 = img1[400:600,300:700]  
