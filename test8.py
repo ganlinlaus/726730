@@ -1,14 +1,16 @@
 import cv2 as cv
 
 #加载两张图片
-img1 = cv.imread('002.jpg')
+img1 = cv.imread('007.png')
 img2 = cv.imread('005.png')
 #我想在左上角放置一个logo，所以我创建了一个 ROI,并且这个ROI的宽和高为我想放置的logo的宽和高
 rows,cols,channels = img2.shape
 roi = img1[0:rows,0:cols]
 #现在创建一个logo的掩码，通过对logo图像进行阈值，并对阈值结果并创建其反转掩码
 img2gray = cv.cvtColor(img2,cv.COLOR_BGR2GRAY)
-ret,mask = cv.threshold(img2gray,0,100,cv.THRESH_BINARY)
+#ret,mask = cv.threshold(img2gray,200,255,cv.THRESH_BINARY)
+ret,mask = cv.threshold(img2gray,254,255,cv.THRESH_BINARY_INV)
+#ret,mask = cv.threshold(img2gray,50,255,cv.THRESH_TRIANGLE)
 mask_inv = cv.bitwise_not(mask)
 #现在使 ROI 中的徽标区域变黑
 img1_bg = cv.bitwise_and(roi,roi,mask = mask_inv)
