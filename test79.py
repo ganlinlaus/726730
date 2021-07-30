@@ -29,7 +29,7 @@ while True:
         elif totalFingers == 5:
             cv2.putText(img, f'Paper', (bbox[0] + 200, bbox[1] - 30),
                     cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
-        elif fingers[1] == 1 and fingers[2] == 1:
+        elif fingers[1] == 1 and fingers[2] == 1 and totalFingers == 2:
             cv2.putText(img, f'Scissors', (bbox[0] + 200, bbox[1] - 30),
                     cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
         
@@ -39,9 +39,9 @@ while True:
         bbox = bboxInfo['bbox']
 
         # Find Distance Between Two Fingers
-        distance, img, info = detector.findDistance(8, 12, img)
-        cv2.putText(img, f'Dist:{int(distance)}', (bbox[0] + 400, bbox[1] - 30),
-                    cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
+        #distance, img, info = detector.findDistance(8, 12, img)
+        #cv2.putText(img, f'Dist:{int(distance)}', (bbox[0] + 400, bbox[1] - 30),
+        #            cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
     if lmList:
         bbox = bboxInfo['bbox']
 
